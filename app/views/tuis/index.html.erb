@@ -1,0 +1,22 @@
+<div id="wrap">
+<p class="btn-flat"><%= link_to 'つぶやく', 'tuis/new', :style=>"color:#67c5ff;" %></p>
+<p class="osirase"><%= notice %></p>
+<div class="container">
+<table>
+  <tr class="row">
+    <td class="col-md-10 tubuyaku">your tuitui</td>
+    <td class="col-md-1 tubuyaku"></td>
+    <td class="col-md-1 tubuyaku"></td>
+
+  </tr>
+
+<% @tuis.each do |tui| %>
+  <tr class="row">
+    <td class="col-md-10"><%= tui.content %></td>
+    <td class="col-md-1"><%= link_to "編集", edit_tui_path(tui.id), :style=>"color:#67c5ff;" %></td>
+    <td class="col-md-1"><%= link_to '削除', tui_path(tui.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }, :style=>"color:#67c5ff;" %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+</div>

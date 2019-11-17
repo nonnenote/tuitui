@@ -1,0 +1,20 @@
+<%= form_with(model: @tui, local: true ,url: choose_new_or_edit) do |form| %>
+<% if @tui.errors.any? %>
+  <div id="error_explanation">
+    <h2 class="dousiteru"><%= @tui.errors.count %>件のエラーがあります。</h2>
+    <ul>
+
+    <% @tui.errors.full_messages.each do |msg| %>
+      <li class="error_msg"><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+  <div class="tui_title">
+    <%= form.text_field :content %>
+  </div>
+  <br>
+  <p class="ichiran"><%= form.submit class: 'btn btn-primary' %></p>
+<% end %>
+<p class="ichiran"><%= link_to 'つぶやき一覧', '/tuis' %></p>
